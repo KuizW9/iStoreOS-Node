@@ -1,0 +1,13 @@
+version: '3.8'
+services: 
+  xrayr: 
+    image: ghcr.io/xrayr-project/xrayr:latest
+    volumes:
+      - ./config:/etc/XrayR/ # 映射配置文件夹
+    restart: always
+    network_mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"  # Maximum size of each log file (e.g., 10 megabytes)
+        max-file: "5"    # Maximum number of rotated log files to keep
