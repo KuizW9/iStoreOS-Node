@@ -1,0 +1,13 @@
+version: '3.8'
+services: 
+  v2bx: 
+    image: ghcr.io/wyx2685/v2bx:v0.3.5
+    volumes:
+      - ./:/etc/V2bX/ # 映射配置文件夹
+    restart: always
+    network_mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"  # Maximum size of each log file (e.g., 10 megabytes)
+        max-file: "5"    # Maximum number of rotated log files to keep
